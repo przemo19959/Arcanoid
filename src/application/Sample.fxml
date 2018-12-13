@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<BorderPane fx:id="mainPane" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <center>
+      <Group fx:id="group" BorderPane.alignment="CENTER">
+         <children>
+         	<Rectangle fill="BLACK" height="600" width="700" x="0" y="0"/>
+            <Rectangle fx:id="leftWall" fill="YELLOW" height="600" stroke="BLACK" strokeType="INSIDE" width="5" x="0" y="0" />
+            <Rectangle fx:id="topWall" fill="YELLOW" height="5" stroke="BLACK" strokeType="INSIDE" width="690" x="5" y="0" />
+            <Rectangle fx:id="rightWall" fill="YELLOW" height="600" stroke="BLACK" strokeType="INSIDE" width="5" x="695" y="0" />
+            <Rectangle fx:id="floor" arcHeight="5.0" arcWidth="5.0" fill="GREENYELLOW" height="8" stroke="BLACK" strokeType="INSIDE" width="100" x="300" y="550" />
+            <Rectangle fx:id="ball" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="10" stroke="BLACK" strokeType="INSIDE" width="10" x="180" y="350" />
+            <Label fx:id="textInfo" text="Move floor to start" prefWidth="700" layoutY="300"/>
+            <Label fx:id="scoreInfo" text="Won: Lost: " layoutX="20"/>
+         </children>
+      </Group>
+   </center>
+</BorderPane>
