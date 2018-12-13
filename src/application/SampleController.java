@@ -49,14 +49,16 @@ public class SampleController {
 		
 		//ruch pod³ogi
 		window.addEventHandler(KeyEvent.KEY_PRESSED, (keyEvent)->{
-			if(won) {
-				drawBrickArray();
-				newGameDefaultSetting();
-			}
+			startGame();
 			if(keyEvent.getCode().toString().equals("RIGHT"))
 				moveRightInBounds();
 			if(keyEvent.getCode().toString().equals("LEFT"))
 				moveLeftInBounds();
+		});
+		
+		//w³¹czenie gry przez naciœniêcie myszy
+		window.addEventHandler(MouseEvent.MOUSE_CLICKED, ev->{
+			startGame();
 		});
 		
 		//ruch pod³ogi przez mysz
@@ -97,6 +99,18 @@ public class SampleController {
 				brickArray.remove(brickArray.get(i));
 				break;
 			}
+		}
+	}
+	
+	//funkcja pomocnicza
+	private void startGame() {
+		if(won) {
+			drawBrickArray();
+			newGameDefaultSetting();
+		}
+		if(timer.getStatus().equals(Animation.Status.STOPPED)) {
+			timer.playFromStart();
+			textInfo.setVisible(false);
 		}
 	}
 	
@@ -197,19 +211,11 @@ public class SampleController {
 	
 	//ruch pod³ogi w prawo
 	private void moveRight() {
-		if(timer.getStatus().equals(Animation.Status.STOPPED)) {
-			timer.playFromStart();
-			textInfo.setVisible(false);
-		}
 		floor.setX(floor.getX()+floorStep);
 	}
 	
 	//ruch pod³ogi w lewo
 	private void moveLeft() {
-		if(timer.getStatus().equals(Animation.Status.STOPPED)) {
-			timer.playFromStart();
-			textInfo.setVisible(false);
-		}
 		floor.setX(floor.getX()-floorStep);
 	}
 }
